@@ -46,7 +46,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
        protected $nama; // Atribute atau properti
    ```
 
-2. Membuat _construct_ didalam abstract class `Pengguna`: 
+2. Menambahkan _construct_ didalam abstract class `Pengguna`: 
 
    ```php
    public function __construct($nama) { // Konstruktor untuk menginisialisasi nama
@@ -76,7 +76,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     private $jurusan;
    ```
 
-2. Membuat _construct_ didalam class `Mahasiswa`:
+2. Menambahkan _construct_ didalam class `Mahasiswa`:
 
    ```php
    public function __construct($nama, $nim, $jurusan) { // Constructor
@@ -133,7 +133,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     private $mataKuliah;
    ```
 
-2. Membuat _construct_ didalam kelas turunan `Dosen`:
+2. Menambahakan _construct_ didalam kelas turunan `Dosen`:
    
    ```php
    public function __construct($nama, $mataKuliah) { // Konstruktor untuk inisialisasi nama dan mata kuliah dosen
@@ -155,6 +155,8 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
    }
 
    ```
+
+
 
 ## Panduan Penggunaan
 Berikut adalah contoh cara membuat objek dan mengakses metode dari kelas-kelas tersebut:
