@@ -1,7 +1,7 @@
 ### Dokumentasi Proyek Pertemuan 3-4 Jobsheet 2
 
-#### Deskripsi
-Program ini mendemonstrasikan konsep pewarisan (inheritance) dalam PHP dengan membuat kelas abstrak `Pengguna` yang diimplementasikan oleh dua kelas turunan: `Mahasiswa` dan `Dosen`.
+#### Deskripsi Proyek
+Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, dan abstraction dalam PHP dengan membuat kelas abstrak `Pengguna` yang diimplementasikan oleh dua kelas turunan: `Mahasiswa` dan `Dosen`.
 
 #### Struktur Kelas
 
@@ -33,7 +33,25 @@ Program ini mendemonstrasikan konsep pewarisan (inheritance) dalam PHP dengan me
      - `aksesFitur()`: Implementasi akses fitur khusus dosen.
 
 ### Proses Pembuatan
+### Kelas Pengguna
 
+1. Membuat class dan atribut `Pengguna`:
+   ```php
+   // Kelas abstrak Pengguna yang diimplementasikan oleh Mahasiswa dan Dosen
+   abstract class Pengguna {
+       abstract public function aksesFitur();
+    
+       protected $nama; // Atribute atau properti
+    
+       public function __construct($nama) { // Konstruktor untuk menginisialisasi nama
+           $this->nama = $nama;
+       }
+
+       public function getNama() { // Metode getter
+           return $this->nama;
+       }
+   }
+   ```
 
 #### Panduan Penggunaan
 Berikut adalah contoh cara membuat objek dan mengakses metode dari kelas-kelas tersebut:
