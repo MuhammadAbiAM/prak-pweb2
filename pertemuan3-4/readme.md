@@ -13,7 +13,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
      - `getNama()`: Mengembalikan nama pengguna.
      - `aksesFitur()`: Metode abstrak yang harus diimplementasikan oleh kelas turunan.
 
-2. **Mahasiswa (Kelas Turuna)**
+2. **Mahasiswa (Kelas Turunan)**
    - **Atribut:**
      - `private $nim`
      - `private $jurusan`
@@ -156,27 +156,41 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
 
    ```
 
-## Instansiasi / Panduan Penggunaan
+## Panduan Penggunaan
 Berikut adalah contoh cara membuat objek dan mengakses metode dari kelas-kelas tersebut:
 
+1. Instansiasi objek Mahasiswa
 ```php
-// Instansiasi objek Mahasiswa
 $mahasiswa = new Mahasiswa("Muhammad Abi", "230202068", "Teknik Informatika");
-echo $mahasiswa->tampilkanData() . "<br><br>";
+```
 
-// Mengubah data Mahasiswa
+2. Menampilkan data mahasiswa
+```php
+echo $mahasiswa->tampilkanData() . "<br><br>";
+```
+
+3. Mengubah data Mahasiswa
+```php
 $mahasiswa->setNama("Abi Ganteng");
 $mahasiswa->setNim("99999999");
 $mahasiswa->setJurusan("Teknik Sastra Mesin");
+```
 
-// Menampilkan data yang telah diubah
+4. Menampilkan data Mahasiswa yang telah diubah dan akses fitur
+```php
 echo "Nama: " . $mahasiswa->getNama() . "<br>";
 echo "NIM: " . $mahasiswa->getNim() . "<br>";
 echo "Jurusan: " . $mahasiswa->getJurusan() . "<br>";
 echo $mahasiswa->aksesFitur() . "<br><br>";
+```
 
-// Instansiasi objek Dosen
+5. Instansiasi objek Dosen
+```php
 $dosen = new Dosen("Pak Abdu'a", "PWEB");
+```
+
+6. Menampilkan data Dosen dan akses fitur
+```php
 echo "Nama: " . $dosen->getNama() . "<br>";
 echo "Mata Kuliah: " . $dosen->getMataKuliah() . "<br>";
 echo $dosen->aksesFitur() . "<br>";
@@ -185,3 +199,4 @@ echo $dosen->aksesFitur() . "<br>";
 ## Hasil Output
 Program ini akan mencetak informasi pengguna, baik mahasiswa maupun dosen, serta fitur yang dapat diakses oleh masing-masing peran sesuai implementasi dari metode `aksesFitur`.
 
+![Screenshot 2024-10-14 224531](https://github.com/user-attachments/assets/843f363a-3c3a-4d35-9772-2f8d58528dbc)
