@@ -156,9 +156,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
 
    ```
 
-
-
-## Panduan Penggunaan
+## Instansiasi / Panduan Penggunaan
 Berikut adalah contoh cara membuat objek dan mengakses metode dari kelas-kelas tersebut:
 
 ```php
