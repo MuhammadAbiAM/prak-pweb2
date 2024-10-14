@@ -116,7 +116,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     }
 
     public function aksesFitur() { // Implementasi metode aksesFitur, sesuai dengan peran mahasiswa
-        return "Mahasiswa dapat mengakses fitur data mahasiswa";
+        return "Mahasiswa dapat mengakses data mahasiswa";
     }
    }   
    ```
@@ -161,6 +161,7 @@ Berikut adalah contoh cara membuat objek dan mengakses metode dari kelas-kelas t
 
 1. Instansiasi objek Mahasiswa
 ```php
+echo "Data Mahasiswa: ". "<br>";
 $mahasiswa = new Mahasiswa("Muhammad Abi", "230202068", "Teknik Informatika");
 ```
 
@@ -171,6 +172,7 @@ echo $mahasiswa->tampilkanData() . "<br><br>";
 
 3. Mengubah data Mahasiswa
 ```php
+echo "Data Mahasiswa setelah diperbaruhi: " . "<br>";
 $mahasiswa->setNama("Abi Ganteng");
 $mahasiswa->setNim("99999999");
 $mahasiswa->setJurusan("Teknik Sastra Mesin");
@@ -178,10 +180,13 @@ $mahasiswa->setJurusan("Teknik Sastra Mesin");
 
 4. Menampilkan data Mahasiswa yang telah diubah dan akses fitur
 ```php
-echo "Nama: " . $mahasiswa->getNama() . "<br>";
-echo "NIM: " . $mahasiswa->getNim() . "<br>";
-echo "Jurusan: " . $mahasiswa->getJurusan() . "<br>";
-echo $mahasiswa->aksesFitur() . "<br><br>";
+echo "Nama: ";
+echo $mahasiswa->getNama() . "<br>";
+echo "NIM: ";
+echo $mahasiswa->getNim() . "<br>";
+echo "Jurusan: ";
+echo $mahasiswa->getJurusan() . "<br>". "<br>";
+echo $mahasiswa->aksesFitur() . "<br>". "<br>";
 ```
 
 5. Instansiasi objek Dosen
@@ -191,6 +196,7 @@ $dosen = new Dosen("Pak Abdu'a", "PWEB");
 
 6. Menampilkan data Dosen dan akses fitur
 ```php
+echo "Data dosen: ";
 echo "Nama: " . $dosen->getNama() . "<br>";
 echo "Mata Kuliah: " . $dosen->getMataKuliah() . "<br>";
 echo $dosen->aksesFitur() . "<br>";
@@ -199,4 +205,5 @@ echo $dosen->aksesFitur() . "<br>";
 ## Hasil Output
 Program ini akan mencetak informasi pengguna, baik mahasiswa maupun dosen, serta fitur yang dapat diakses oleh masing-masing peran sesuai implementasi dari metode `aksesFitur`.
 
-![Screenshot 2024-10-14 224531](https://github.com/user-attachments/assets/843f363a-3c3a-4d35-9772-2f8d58528dbc)
+![Screenshot 2024-10-14 225713](https://github.com/user-attachments/assets/7e09e1a5-3212-477d-bd41-2f6f74cb4e6b)
+
