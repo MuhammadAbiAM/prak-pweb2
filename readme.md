@@ -1,4 +1,3 @@
-
 # Dokumentasi Proyek Pertemuan 1-2 Jobsheet 1 #
 
 ## Deskripsi Proyek
@@ -521,7 +520,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
 
 ### Kelas Mahasiswa (Kelas Turunan)
 
-1. Membuat kelas turunan `Mahasiswa` dari class `Pengguna` dan atribut:
+4. Membuat kelas turunan `Mahasiswa` dari class `Pengguna` dan atribut:
 
    ```php
    // Kelas Mahasiswa menggunakan konsep inheritance dari kelas Pengguna
@@ -532,7 +531,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     private $jurusan;
    ```
 
-2. Menambahkan _construct_ didalam class `Mahasiswa`:
+5. Menambahkan _construct_ didalam class `Mahasiswa`:
 
    ```php
    public function __construct($nama, $nim, $jurusan) { // Constructor
@@ -542,7 +541,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
    }
    ```
 
-3. Membuat _metode_ getter, setter, tampilData, dan aksesFitur didalam class `Mahasiswa`:
+6. Membuat _metode_ getter, setter, tampilData, dan aksesFitur didalam class `Mahasiswa`:
 
    ```php
    // Metode getter
@@ -579,7 +578,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
 
 ### Kelas Dosen (Kelas Turunan)
 
-1. Membuat kelas turunan `Dosen` dari class `Pengguna` dan atribut:
+7. Membuat kelas turunan `Dosen` dari class `Pengguna` dan atribut:
 
    ```php
    // Kelas Dosen meng-extend kelas Pengguna
@@ -589,7 +588,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     private $mataKuliah;
    ```
 
-2. Menambahakan _construct_ didalam kelas turunan `Dosen`:
+8. Menambahakan _construct_ didalam kelas turunan `Dosen`:
    
    ```php
    public function __construct($nama, $mataKuliah) { // Konstruktor untuk inisialisasi nama dan mata kuliah dosen
@@ -598,7 +597,7 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
     }
    ```
 
-3. Membuat _metode_ getter dan aksesFitur didalam kelas turunan `Dosen`:
+9. Membuat _metode_ getter dan aksesFitur didalam kelas turunan `Dosen`:
 
    ```php
     public function getMataKuliah() {  // Metode getter
@@ -664,3 +663,261 @@ Program ini akan mencetak informasi pengguna, baik mahasiswa maupun dosen, serta
 ![Screenshot 2024-10-14 225713](https://github.com/user-attachments/assets/7e09e1a5-3212-477d-bd41-2f6f74cb4e6b)
 
 Dengan README ini, kita dapat memahami struktur kelas, penggunaan metode, dan hasil output dari kode PHP yang diberikan. README ini juga memberikan instruksi singkat tentang cara menjalankan script tersebut.
+
+
+# Dokumentasi Proyek Pertemuan 5-6 Jobsheet 3
+
+## Deskripsi Proyek
+
+Dokumentasi ini berisi implementasi sistem manajemen jurnal akademik sederhana menggunakan konsep Object-Oriented Programming (OOP) dalam PHP. Sistem ini memungkinkan pengelolaan jurnal untuk mahasiswa dan dosen.
+
+## Struktur Proyek
+
+### 1. Person
+Kelas dasar untuk representasi individu.
+
+#### Atribut:
+- `$name` (protected): Nama individu
+
+#### Method:
+- `__construct($name)`: Konstruktor untuk inisialisasi nama
+- `getName()`: Mengembalikan nama individu
+
+### 2. Mahasiswa
+Kelas turunan dari Person, merepresentasikan mahasiswa.
+
+#### Atribut:
+- `$nim` (private): Nomor Induk Mahasiswa
+
+#### Method:
+- `__construct($name, $nim)`: Konstruktor untuk inisialisasi nama dan NIM
+- `setNim($nim)`: Mengatur NIM mahasiswa
+- `getNim()`: Mengembalikan NIM mahasiswa
+- `getRole()`: Mengembalikan peran sebagai mahasiswa dengan format tertentu
+
+### 3. Dosen
+Kelas turunan dari Person, merepresentasikan dosen.
+
+#### Atribut:
+- `$nidn` (private): Nomor Induk Dosen Nasional
+
+#### Method:
+- `__construct($name, $nidn)`: Konstruktor untuk inisialisasi nama dan NIDN
+- `setNidn($nidn)`: Mengatur NIDN dosen
+- `getNidn()`: Mengembalikan NIDN dosen
+- `getRole()`: Mengembalikan peran sebagai dosen dengan format tertentu
+
+### 4. Jurnal
+Kelas abstrak untuk representasi jurnal.
+
+#### Atribut:
+- `$judul` (protected): Judul jurnal
+- `$penulis` (protected): Penulis jurnal (objek Person)
+
+#### Method:
+- `__construct($judul, $penulis)`: Konstruktor untuk inisialisasi judul dan penulis
+- `kelolaPengujian()`: Method abstrak untuk mengelola pengujian jurnal
+
+### 5. JurnalMahasiswa
+Kelas turunan dari Jurnal, merepresentasikan jurnal mahasiswa.
+
+#### Atribut:
+- `$jurusan` (private): Jurusan mahasiswa
+
+#### Method:
+- `__construct($judul, Mahasiswa $penulis, $jurusan)`: Konstruktor untuk inisialisasi jurnal mahasiswa
+- `kelolaPengujian()`: Implementasi pengujian jurnal mahasiswa
+
+### 6. JurnalDosen
+Kelas turunan dari Jurnal, merepresentasikan jurnal dosen.
+
+#### Atribut:
+- $univ (private): Universitas dosen
+
+#### Method:
+- `__construct($judul, Dosen $penulis, $univ)`: Konstruktor untuk inisialisasi jurnal dosen
+- `kelolaPengujian()`: Implementasi pengujian jurnal dosen
+
+## Penerapan Konsep OOP
+
+### Kode ini mendemonstrasikan penerapan berbagai konsep OOP dalam bahasa PHP. Berikut adalah penjelasan untuk masing-masing konsep:
+1. Class dan Object
+### Kode ini mendefinisikan beberapa class seperti Person, Mahasiswa, Dosen, Jurnal, JurnalMahasiswa, dan JurnalDosen.
+```php
+
+$mahasiswa = new Mahasiswa("Muhammad Abi", "232020068");
+$dosen = new Dosen("Prof. Drs. Budiono Siregat, S.T., M.Eng.", "123456789");
+```
+
+2. Encapsulation
+### Enkapsulasi diterapkan dengan menggunakan access modifiers seperti public, private, dan protected.
+
+```php
+class Person {
+    protected $name;
+    
+    public function __construct($name) {
+        $this->name = $name;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+}
+```
+
+3. Inheritance
+### Pewarisan diimplementasikan menggunakan keyword extends.
+
+```php
+class Mahasiswa extends Person {
+    private $nim;
+    
+    public function __construct($name, $nim) {
+        parent::__construct($name);
+        $this->nim = $nim;
+    }
+}
+```
+
+5. Polymorphism
+Polimorfisme ditunjukkan melalui penggunaan method getRole() yang diimplementasikan secara berbeda di class Mahasiswa dan Dosen:
+
+```php
+class Mahasiswa extends Person {
+    public function getRole() {
+        return "'" . $this->name . " (NIM: " . $this->nim . ")'";
+    }
+}
+
+class Dosen extends Person {
+    public function getRole() {
+        return "'" . $this->name . " (NIDN: " . $this->nidn . ")'";
+    }
+}
+```
+
+5. Abstraction
+Abstraksi diterapkan melalui penggunaan abstract class Jurnal dan abstract method kelolaPengujan():
+
+```php
+abstract class Jurnal {
+    abstract public function kelolaPengujian();
+    
+    // ... other methods ...
+}
+```
+
+## Implementasi
+
+### Kelas Person
+
+1. Membuat class dan atribut `Person`
+
+```php
+class Person {
+    protected $name;
+```
+
+2. Membuat _construct_ didalam class `Person`
+
+```php
+public function __construct($name) {
+        $this->name = $name;
+    }
+```
+
+3. Membuat _method_ didalam class `Person`
+
+```php
+public function getName() { 
+        return $this->name; 
+    }
+}
+```
+
+### Kelas Mahasiswa (Extend Class)
+
+4. Membuat extend class dan atribut `Mahasiswa`
+
+```php
+class Mahasiswa extends Person {
+    private $nim;
+```
+
+5. Membuat _construct_ didalam extend class `Mahasiswa`
+
+```php
+public function __construct($name, $nim) {
+        parent::__construct($name);
+        $this->nim = $nim;
+    }
+```
+
+6. Membuat _method_ didalam extend class `Mahasiswa`
+
+```php
+public function setNim($nim) { 
+        $this->nim = $nim; 
+    }
+    public function getNim() { 
+        return $this->nim; 
+    }
+
+    public function getRole() { 
+        return "" . $this->name .  "  (NIM: " . $this->nim . ")";
+    }
+}
+```
+
+### Kelas Dosen (Extend class)
+
+7. Membuat extend class dan atribut `Dosen`
+
+```php
+class Dosen extends Person {
+    private $nidn;
+```
+
+8. Membuat _construct_ didalam extend class `Dosen`
+
+```php
+public function __construct($name, $nidn) {
+        parent::__construct($name);
+        $this->nidn = $nidn;
+    }
+```
+
+9. Membuat _method_ didalam extend class `Dosen`
+
+```php
+public function setNidn($nidn) { 
+        $this->nidn = $nidn; 
+    }
+    public function getNim() { 
+        return $this->nidn; 
+    }
+    
+    public function getRole() { 
+        return "" . $this->name . " (NIDN: " . $this->nidn . ")"; 
+    }
+}
+```
+
+
+## Panduam Penggunaan
+
+
+
+## Contoh Output
+
+```
+Muhammad Abi (NIM: 232020068)
+adalah seorang Mahasiswa
+Pengujian jurnal Sistem Informasi Berbasis Web Andriawan Neval oleh Mahasiswa Muhammad Abi (NIM: 232020068) Jurusan Teknik Informatika sedang diproses
+Prof. Drs. Budiono Siregat, S.T., M.Eng. (NIDN: 123456789)
+adalah seorang Dosen
+Pengujian jurnal Belajar Programing Dasar oleh Dosen Prof. Drs. Budiono Siregat, S.T., M.Eng. (NIDN: 123456789) dari Universitas Negeri Medan sedang diproses
+```
+
+Dokumentasi ini memberikan gambaran komprehensif tentang struktur dan fungsi sistem manajemen jurnal akademik. Untuk pengembangan lebih lanjut, Anda dapat menambahkan fitur-fitur seperti penyimpanan data ke database, antarmuka pengguna, atau integrasi dengan sistem akademik yang lebih besar.
