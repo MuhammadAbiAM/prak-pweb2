@@ -32,7 +32,307 @@ Program ini mendemonstrasikan konsep encapsulation, inheritance, polimorphysm, d
      - `getMataKuliah()`: Mengembalikan mata kuliah.
      - `aksesFitur()`: Implementasi akses fitur khusus dosen.
 
-## Proses Pembuatan
+## Tahapan OOP
+
+1. **Membuat class dan object**
+   
+   - Membuat class _Mahasiswa_ yang memiliki atribut nama, nim, dan jurusan.
+   - Membuat metode tampilData didalam class _Mahasiswa_.
+   - Instansiasi objek dari class _Mahasiswa_.
+
+   ```php
+   class Mahasiswa
+   {
+    // Atribut atau properti
+    public $nim;
+    public $jurusan;
+
+    public function __construct($nama, $nim, $jurusan) { // Constructor
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+   public function tampilkanData() { // Metode untuk menampilkan data mahasiswa
+        return "Nama: $this->nama <br> NIM: $this->nim <br> Jurusan: $this->jurusan";
+    }
+
+   // Instansiasi objek
+   echo "Data Mahasiswa: ". "<br>";
+   $mahasiswa = new Mahasiswa("Muhammad Abi", "230202068", "Teknik Informatika");
+   echo $mahasiswa->tampilkanData() . "<br>" . "<br>";
+   ```
+
+2 Encapsulation
+
+   - Mengubah atribut dalam class _Mahasiswa_ menjadi private.
+   - Membuat metode getter dan setter untuk atribut nama, nim, dan jurusan.
+   - Mendemonstrasikan akses ke atribut menggunakan metode getter dan setter.
+
+   ```php
+   class Mahasiswa
+   {
+    // Atribut atau properti
+    private $nim;
+    private $jurusan;
+
+    public function __construct($nama, $nim, $jurusan) { // Constructor
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode getter
+    public function getNama() {
+        return $this->nama;
+    }
+    public function getNim() {
+        return $this->nim;
+    }
+    public function getJurusan() {
+        return $this->jurusan;
+    }
+
+    // Metode setter
+    public function setNama($nama) {
+        $this->nama = $nama;
+    }
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+    public function setJurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+
+   echo "Data Mahasiswa setelah diperbaruhi: " . "<br>";
+   $mahasiswa->setNama("Abi Ganteng");
+   $mahasiswa->setNim("999999999");
+   $mahasiswa->setJurusan("Teknik Sastra Mesin");
+   echo "Nama: ";
+   echo $mahasiswa->getNama() . "<br>";
+   echo "NIM: ";
+   echo $mahasiswa->getNim() . "<br>";
+   echo "Jurusan: ";
+   echo $mahasiswa->getJurusan() . "<br>". "<br>";
+   echo $mahasiswa->aksesFitur() . "<br>". "<br>";
+   ```
+
+3. Inheritance
+
+   - Membuat class _Pengguna_ dengan atribut nama dan metode getNama().
+   - Membuat class _Dosen_ yang mewarisi class Pengguna dan tambahkan atribut mataKuliah.
+   - Menginstansiasi objek dari class _Dosen_ dan tampilkan data dosen.
+
+   ```php
+   class Pengguna {
+    
+    protected $nama; // Atribute atau properti
+    
+    public function __construct($nama) { // Konstruktor untuk menginisialisasi nama
+        $this->nama = $nama;
+    }
+
+    public function getNama() { // Metode getter
+        return $this->nama;
+    }
+   }
+
+   class Dosen extends Pengguna
+   {
+    // Atribut atau properti
+    private $mataKuliah;
+
+    public function __construct($nama, $mataKuliah) { // Konstruktor untuk inisialisasi nama dan mata kuliah dosen
+        parent::__construct($nama); // Panggil konstruktor kelas induk (Pengguna)
+        $this->mataKuliah = $mataKuliah;
+    }
+
+    public function getMataKuliah() {  // Metode getter
+        return $this->mataKuliah;
+    }
+
+   $dosen = new Dosen("Pak Abda'u", "PWEB");
+   echo "Data Dosen: ". "<br>";
+   echo "Nama: ";
+   echo $dosen->getNama() . "<br>";
+   echo "Mata Kuliah: ";
+   echo $dosen->getMataKuliah() . "<br>". "<br>";
+   ```
+
+4. Polimorphysm
+
+   - Membuat class _Pengguna_ dengan metode aksesFitur().
+   - Meng-implementasikan aksesFitur() dengan cara berbeda di class Dosen dan Mahasiswa.
+   - Meng-instansiasi objek dari class _Dosen_ dan _Mahasiswa_, lalu panggil metode aksesFitur().
+
+   ```php
+   class Pengguna {
+    public function aksesFitur();
+    
+    protected $nama; // Atribute atau properti
+    
+    public function __construct($nama) { // Konstruktor untuk menginisialisasi nama
+        $this->nama = $nama;
+    }
+
+    public function getNama() { // Metode getter
+        return $this->nama;
+    }
+   }
+
+   class Mahasiswa extends Pengguna
+   {
+    // Atribut atau properti
+    private $nim;
+    private $jurusan;
+
+    public function __construct($nama, $nim, $jurusan) { // Constructor
+        parent::__construct($nama);  // Panggil konstruktor kelas induk Pengguna
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode getter
+    public function getNama() {
+        return $this->nama;
+    }
+    public function getNim() {
+        return $this->nim;
+    }
+    public function getJurusan() {
+        return $this->jurusan;
+    }
+
+    // Metode setter
+    public function setNama($nama) {
+        $this->nama = $nama;
+    }
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+    public function setJurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+
+    public function tampilkanData() { // Metode untuk menampilkan data mahasiswa
+        return "Nama: $this->nama <br> NIM: $this->nim <br> Jurusan: $this->jurusan";
+    }
+
+    public function aksesFitur() { // Implementasi metode aksesFitur, sesuai dengan peran mahasiswa
+        return "Mahasiswa dapat mengakses data mahasiswa";
+    }
+   }
+
+   class Dosen extends Pengguna
+   {
+    // Atribut atau properti
+    private $mataKuliah;
+
+    public function __construct($nama, $mataKuliah) { // Konstruktor untuk inisialisasi nama dan mata kuliah dosen
+        parent::__construct($nama); // Panggil konstruktor kelas induk (Pengguna)
+        $this->mataKuliah = $mataKuliah;
+    }
+
+    public function getMataKuliah() {  // Metode getter
+        return $this->mataKuliah;
+    }
+
+    public function aksesFitur() { // Implementasi metode aksesFitur untuk dosen
+        return "Dosen dapat mengakses data dosen dan data mahasiswa";
+    }
+   }
+
+   echo $mahasiswa->aksesFitur() . "<br>". "<br>";
+   echo $dosen->aksesFitur() . "<br>";
+   ```
+
+5. Abstraction
+
+   - Membuat class abstrak _Pengguna_ dengan metode abstrak aksesFitur().
+   - Meng-implementasikan class _Mahasiswa_ dan _Dosen_ yang mengimplementasikan metode abstrak tersebut.
+   - Mendemonstrasikan dengan memanggil metode aksesFitur() dari objek yang diinstansiasi.
+
+   ```php
+   abstract class Pengguna {
+    abstract public function aksesFitur();
+    
+    protected $nama; // Atribute atau properti
+    
+    public function __construct($nama) { // Konstruktor untuk menginisialisasi nama
+        $this->nama = $nama;
+    }
+
+    public function getNama() { // Metode getter
+        return $this->nama;
+    }
+   }
+
+   class Mahasiswa extends Pengguna
+   {
+    // Atribut atau properti
+    private $nim;
+    private $jurusan;
+
+    public function __construct($nama, $nim, $jurusan) { // Constructor
+        parent::__construct($nama);  // Panggil konstruktor kelas induk Pengguna
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode getter
+    public function getNama() {
+        return $this->nama;
+    }
+    public function getNim() {
+        return $this->nim;
+    }
+    public function getJurusan() {
+        return $this->jurusan;
+    }
+
+    // Metode setter
+    public function setNama($nama) {
+        $this->nama = $nama;
+    }
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+    public function setJurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+
+    public function tampilkanData() { // Metode untuk menampilkan data mahasiswa
+        return "Nama: $this->nama <br> NIM: $this->nim <br> Jurusan: $this->jurusan";
+    }
+
+    public function aksesFitur() { // Implementasi metode aksesFitur, sesuai dengan peran mahasiswa
+        return "Mahasiswa dapat mengakses data mahasiswa";
+    }
+   }
+
+   class Dosen extends Pengguna
+   {
+    // Atribut atau properti
+    private $mataKuliah;
+
+    public function __construct($nama, $mataKuliah) { // Konstruktor untuk inisialisasi nama dan mata kuliah dosen
+        parent::__construct($nama); // Panggil konstruktor kelas induk (Pengguna)
+        $this->mataKuliah = $mataKuliah;
+    }
+
+    public function getMataKuliah() {  // Metode getter
+        return $this->mataKuliah;
+    }
+
+    public function aksesFitur() { // Implementasi metode aksesFitur untuk dosen
+        return "Dosen dapat mengakses data dosen dan data mahasiswa";
+    }
+   }
+
+   // Instansiasi objek;
+   echo $mahasiswa->aksesFitur() . "<br>". "<br>";
+   echo $dosen->aksesFitur() . "<br>";
+   ```
+
+## Implementasi
 
 ### Kelas Pengguna (Abstract Class)
 
