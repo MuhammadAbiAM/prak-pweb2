@@ -662,8 +662,6 @@ Program ini akan mencetak informasi pengguna, baik mahasiswa maupun dosen, serta
 
 ![Screenshot 2024-10-14 225713](https://github.com/user-attachments/assets/7e09e1a5-3212-477d-bd41-2f6f74cb4e6b)
 
-Dengan README ini, kita dapat memahami struktur kelas, penggunaan metode, dan hasil output dari kode PHP yang diberikan. README ini juga memberikan instruksi singkat tentang cara menjalankan script tersebut.
-
 
 # Dokumentasi Proyek Pertemuan 5-6 Jobsheet 3
 
@@ -1007,6 +1005,7 @@ echo $jurnalDosen->kelolaPengajuan() . "<br>";
 
 ## Hasil Output
 
+![image](https://github.com/user-attachments/assets/01ea271c-aedf-4333-be83-a0c63f7208f8)
 
 
-Dokumentasi ini memberikan gambaran komprehensif tentang struktur dan fungsi sistem manajemen jurnal akademik. Untuk pengembangan lebih lanjut, Anda dapat menambahkan fitur-fitur seperti penyimpanan data ke database, antarmuka pengguna, atau integrasi dengan sistem akademik yang lebih besar.
+Dengan README ini, kita dapat memahami struktur kelas, penggunaan metode, dan hasil output dari kode PHP yang diberikan. README ini juga memberikan instruksi singkat tentang cara menjalankan script tersebut.
