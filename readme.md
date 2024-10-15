@@ -827,7 +827,7 @@ public function __construct($name) {
     }
 ```
 
-3. Membuat _method_ didalam class `Person`
+3. Membuat _method_ getter didalam class `Person`
 
 ```php
 public function getName() { 
@@ -854,7 +854,7 @@ public function __construct($name, $nim) {
     }
 ```
 
-6. Membuat _method_ didalam extend class `Mahasiswa`
+6. Membuat _method_ getter dan setter didalam extend class `Mahasiswa`
 
 ```php
 public function setNim($nim) { 
@@ -888,7 +888,7 @@ public function __construct($name, $nidn) {
     }
 ```
 
-9. Membuat _method_ didalam extend class `Dosen`
+9. Membuat _method_ getter dan setter didalam extend class `Dosen`
 
 ```php
 public function setNidn($nidn) { 
@@ -904,20 +904,109 @@ public function setNidn($nidn) {
 }
 ```
 
+### Kelas Jurnal (Abstract class)
 
-## Panduam Penggunaan
+10. Membuat abstract class, method kelolaPengajuan, dan atribut `Jurnal`
 
+```php
+abstract class Jurnal {
+    abstract public function kelolaPengajuan();
 
-
-## Contoh Output
-
+    protected $judul;
+    protected $penulis;
 ```
-Muhammad Abi (NIM: 232020068)
-adalah seorang Mahasiswa
-Pengujian jurnal Sistem Informasi Berbasis Web Andriawan Neval oleh Mahasiswa Muhammad Abi (NIM: 232020068) Jurusan Teknik Informatika sedang diproses
-Prof. Drs. Budiono Siregat, S.T., M.Eng. (NIDN: 123456789)
-adalah seorang Dosen
-Pengujian jurnal Belajar Programing Dasar oleh Dosen Prof. Drs. Budiono Siregat, S.T., M.Eng. (NIDN: 123456789) dari Universitas Negeri Medan sedang diproses
+
+11. Membuat _construct_ didalam abstract class `Jurnal`
+
+```php
+public function __construct($judul, $penulis) {
+        $this->judul = $judul;
+        $this->penulis = $penulis;
+    }
+}
 ```
+
+### Kelas JurnalMahasiswa (Extend class)
+
+12. Membuat extend class dan atribut `JurnalMahasiswa`
+
+```php
+class JurnalMahasiswa extends Jurnal {
+
+    private $jurusan;
+```
+
+13. Membuat _construct_ didalam extend class `JurnalMahasiswa`
+
+```php
+public function __construct($judul, Mahasiswa $penulis, $jurusan) {
+        parent::__construct($judul, $penulis, $jurusan);
+        $this->jurusan = $jurusan;
+    }
+```
+
+14. Membuat _method_ kelolaPengajuan didalam extend class `JurnalMahasiswa`
+
+```php
+public function kelolaPengajuan() {
+        return "Pengajuan jurnal {$this->judul} oleh Mahasiswa {$this->penulis->getName()} (NIM: {$this->penulis->getNim()}) Jurusan {$this->jurusan} sedang diproses";
+    }
+}
+```
+
+### Kelas JurnalDosen (Extend class)
+
+15. Membuat extend class dan atribut `JurnalDosen`
+
+```php
+class JurnalDosen extends Jurnal {
+    
+    private $univ;
+```
+
+16. Membuat _construct_ didalam extend class `JurnalDosen`
+
+```php
+public function __construct($judul, Dosen $penulis, $univ) {
+        parent::__construct($judul, $penulis, $univ);
+        $this->univ = $univ;
+    }
+```
+
+17. Membuat _method_ didalam extend class `JurnalDosen`
+
+```php
+public function kelolaPengajuan() {
+        return "Pengajuan jurnal {$this->judul} oleh Dosen {$this->penulis->getName()} (NIDN: {$this->penulis->getNim()}) dari {$this->univ} sedang diproses";
+    }
+}
+```
+
+## Panduan Penggunaan
+
+1. Membuat objek `Mahasiswa`, `Dosen`, `JurnalMahasiswa`, dan `JurnalDosen`
+
+```php
+$mahasiswa = new Mahasiswa("Muhammad Abi", "230202068");
+$dosen = new Dosen("Prof. Drs. Budiono Siregar, S.T., M.Eng.", "123456789");
+
+$jurnalMahasiswa = new JurnalMahasiswa("Sistem Informasi Berbasis Web Angkringan Ngawi", $mahasiswa, "Teknik Informatika ");
+$jurnalDosen = new JurnalDosen("Belajar Progamming Dasar", $dosen ,"Universitas Negeri Ngawi");
+```
+
+2. Menampilkan data menggunakan getter dan kelolalPengajuan
+
+```php
+echo $mahasiswa->getRole();
+echo " adalah seorang Mahasiswa". "<br>";
+echo $jurnalMahasiswa->kelolaPengajuan() . "<br>". "<br>";
+echo $dosen->getRole();
+echo " adalah seorang Dosen". "<br>";
+echo $jurnalDosen->kelolaPengajuan() . "<br>";
+```
+
+## Hasil Output
+
+
 
 Dokumentasi ini memberikan gambaran komprehensif tentang struktur dan fungsi sistem manajemen jurnal akademik. Untuk pengembangan lebih lanjut, Anda dapat menambahkan fitur-fitur seperti penyimpanan data ke database, antarmuka pengguna, atau integrasi dengan sistem akademik yang lebih besar.
