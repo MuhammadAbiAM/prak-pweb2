@@ -1008,4 +1008,4 @@ echo $jurnalDosen->kelolaPengajuan() . "<br>";
 ![image](https://github.com/user-attachments/assets/01ea271c-aedf-4333-be83-a0c63f7208f8)
 
 
-Dengan README ini, kita dapat memahami struktur kelas, penggunaan metode, dan hasil output dari kode PHP yang diberikan. README ini juga memberikan instruksi singkat tentang cara menjalankan script tersebut.
+Dengan README ini, kita dapat memahami struktur kelas, penggunaan metode, dan hasil output dari kode PHP yang diberikan.
